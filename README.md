@@ -21,11 +21,11 @@ Unlike mainstream approaches that rely on lossy AI inpainting (LAMA, STTN), this
 
 ## Demo
 
-Before (original) vs After (watermark removed):
+| Original | After Removal |
+|---|---|
+| [demo/QQcat_original.mp4](demo/QQcat_original.mp4) | [demo/QQcat_clean.mp4](demo/QQcat_clean.mp4) |
 
-![Before/After Comparison](demo/comparison.jpg)
-
-Zoom into the watermark area (bottom-right corner):
+Watermark area zoom (bottom-right corner):
 
 ![Watermark Area Zoom](demo/zoom.jpg)
 
