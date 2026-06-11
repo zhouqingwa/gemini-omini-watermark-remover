@@ -23,13 +23,9 @@ Unlike mainstream approaches that rely on lossy AI inpainting (LAMA, STTN), this
 
 ### Before / After
 
-**Original:**
+<video src="https://github.com/zhouqingwa/gemini-omini-watermark-remover/raw/master/demo/QQcat_original.mp4" controls width="100%"></video>
 
-<video src="https://raw.githubusercontent.com/zhouqingwa/gemini-omini-watermark-remover/master/demo/QQcat_original.mp4" width="100%" controls></video>
-
-**Cleaned:**
-
-<video src="https://raw.githubusercontent.com/zhouqingwa/gemini-omini-watermark-remover/master/demo/QQcat_clean.mp4" width="100%" controls></video>
+<video src="https://github.com/zhouqingwa/gemini-omini-watermark-remover/raw/master/demo/QQcat_clean.mp4" controls width="100%"></video>
 
 **Calibrated and verified resolutions:**
 - ✅ 720×1280 (9:16 portrait)
