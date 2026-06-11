@@ -19,6 +19,18 @@ A specialized tool that removes the **visible watermark** from Gemini Omni AI-ge
 
 Unlike mainstream approaches that rely on lossy AI inpainting (LAMA, STTN), this tool uses **reverse alpha blending** — a deterministic mathematical formula — to achieve **lossless restoration**. The output quality is identical to the original video, with no blurring or artifacts.
 
+## Demo
+
+Comparison between original and cleaned video (side by side):
+
+![Before/After Comparison](demo/comparison.jpg)
+
+Zoom into the watermark area (bottom-right corner):
+
+![Watermark Area Zoom](demo/zoom.jpg)
+
+> **[Download the full comparison video](demo/comparison.mp4)** (original vs cleaned side-by-side)
+
 **Calibrated and verified resolutions:**
 - ✅ 720×1280 (9:16 portrait)
 - ✅ 1280×720 (16:9 landscape)
