@@ -27,10 +27,6 @@ Unlike mainstream approaches that rely on lossy AI inpainting (LAMA, STTN), this
 |---|---|
 | <video src="demo/QQcat_original.mp4" width="100%" controls></video> | <video src="demo/QQcat_clean.mp4" width="100%" controls></video> |
 
-Watermark area zoom (bottom-right corner):
-
-![Watermark Area Zoom](demo/zoom.jpg)
-
 **Calibrated and verified resolutions:**
 - ✅ 720×1280 (9:16 portrait)
 - ✅ 1280×720 (16:9 landscape)
