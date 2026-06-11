@@ -21,9 +21,11 @@ Unlike mainstream approaches that rely on lossy AI inpainting (LAMA, STTN), this
 
 ## Demo
 
-| Original | After Removal |
+### Before / After
+
+| Original | Cleaned |
 |---|---|
-| [demo/QQcat_original.mp4](demo/QQcat_original.mp4) | [demo/QQcat_clean.mp4](demo/QQcat_clean.mp4) |
+| <video src="demo/QQcat_original.mp4" width="100%" controls></video> | <video src="demo/QQcat_clean.mp4" width="100%" controls></video> |
 
 Watermark area zoom (bottom-right corner):
 
