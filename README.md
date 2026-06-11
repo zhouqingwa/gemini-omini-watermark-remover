@@ -9,6 +9,8 @@
 [![OpenCV](https://img.shields.io/badge/OpenCV-4.x-green.svg)](https://opencv.org/)
 [![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey.svg)]()
 
+[English](#overview) | [中文](#概述)
+
 </div>
 
 ---
@@ -19,20 +21,21 @@ A specialized tool that removes the **visible watermark** from Gemini Omni AI-ge
 
 Unlike mainstream approaches that rely on lossy AI inpainting (LAMA, STTN), this tool uses **reverse alpha blending** — a deterministic mathematical formula — to achieve **lossless restoration**. The output quality is identical to the original video, with no blurring or artifacts.
 
-## Demo
-
-### Before / After
-
-| Before | After |
-|---|---|
-| ![Before](demo/before.jpg) | ![After](demo/after.jpg) |
-
-**Calibrated and verified resolutions:**
+**Supported resolutions (original Omni exports only):**
 - ✅ 720×1280 (9:16 portrait)
 - ✅ 1280×720 (16:9 landscape)
-- ✅ 1920×1080 (1080p)
-- ✅ 1080×1920 (portrait HD)
-- ✅ Any resolution auto-detected
+
+---
+
+## Demo
+
+**Before**
+
+https://github.com/user-attachments/assets/41c2db2f-f422-4b72-ab01-934fa3ab58ef
+
+**After**
+
+https://github.com/user-attachments/assets/46805a2e-32dc-43f6-9ded-23408823c45a
 
 ---
 
@@ -142,9 +145,25 @@ gemini-omini-watermark-remover/
 
 ## Caveats
 
-- This tool only removes the **visible watermark** from Gemini Omni videos
-- Invisible watermarks (e.g., SynthID) are not addressed
-- For best results, process the original model output; cropped or resized videos may require re-calibration
+- Removes the **visible watermark** only — invisible SynthID watermarks are not affected
+- Only tested on original Omni exports (720×1280 and 1280×720); cropped or resized videos may not work correctly
+
+---
+
+## 概述
+
+专门用于去除 Gemini Omni AI 生成视频中可见水印的工具。
+
+与依赖 AI 修复（LAMA、STTN）的方案不同，本工具使用**逆向 Alpha 混合**数学公式，实现**无损还原**，无模糊、无伪影。视频全程本地处理，无需上传。
+
+**支持分辨率（仅限 Omni 原始导出）：**
+- ✅ 720×1280（9:16 竖屏）
+- ✅ 1280×720（16:9 横屏）
+
+```bash
+pip install opencv-python numpy
+python main.py your_video.mp4
+```
 
 ---
 
