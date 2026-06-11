@@ -23,11 +23,9 @@ Unlike mainstream approaches that rely on lossy AI inpainting (LAMA, STTN), this
 
 ### Before / After
 
-![Original vs Cleaned](demo/comparison.jpg)
-
-**Left:** Original | **Right:** After watermark removal
-
-[Download original video](demo/QQcat_original.mp4) · [Download cleaned video](demo/QQcat_clean.mp4)
+| Before | After |
+|---|---|
+| ![Before](demo/before.jpg) | ![After](demo/after.jpg) |
 
 **Calibrated and verified resolutions:**
 - ✅ 720×1280 (9:16 portrait)
