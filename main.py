@@ -21,7 +21,8 @@ from core.detector import (
 from core.video_pipeline import VideoPipeline
 
 
-def process_video(video_path, output_path=None, alpha_gain=1.0, search=False):
+def process_video(video_path, output_path=None, alpha_gain=1.0, search=False,
+                  manual_x=None, manual_y=None, debug=False):
     pipe = VideoPipeline(video_path, output_path)
     w, h = pipe.width, pipe.height
     print(f"Input: {video_path}")
@@ -36,8 +37,12 @@ def process_video(video_path, output_path=None, alpha_gain=1.0, search=False):
     # Load alpha map
     _, alpha_map = load_alpha_map(logo_size)
 
+    # Manual position override
+    if manual_x is not None and manual_y is not None:
+        position = {'x': manual_x, 'y': manual_y, 'width': logo_size, 'height': logo_size}
+        print(f"Manual position: ({manual_x}, {manual_y})")
     # Auto-search for watermark position (refines default)
-    if search:
+    elif search:
         print("Searching for watermark position...")
         ret, first_frame = pipe.cap.read()
         if ret:
@@ -50,6 +55,17 @@ def process_video(video_path, output_path=None, alpha_gain=1.0, search=False):
                 print(f"  Not found, using default position")
 
     print(f"Using watermark: {logo_size}x{logo_size} at ({position['x']}, {position['y']})")
+
+    # Debug: save first frame with watermark rectangle
+    if debug:
+        ret, debug_frame = pipe.cap.read()
+        if ret:
+            pipe.cap.set(cv2.CAP_PROP_POS_FRAMES, 0)
+            x, y = position['x'], position['y']
+            cv2.rectangle(debug_frame, (x, y), (x + logo_size, y + logo_size), (0, 255, 0), 2)
+            debug_path = os.path.splitext(pipe.output_path)[0] + "_debug.jpg"
+            cv2.imwrite(debug_path, debug_frame)
+            print(f"Debug frame saved: {debug_path}")
 
     start_time = time.time()
     frame_idx = 0
@@ -102,13 +118,20 @@ def main():
         "--search", action="store_true",
         help="Auto-detect watermark position by scanning the frame"
     )
+    parser.add_argument("--pos-x", type=int, default=None,
+                        help="Manual watermark X position (overrides auto-detect)")
+    parser.add_argument("--pos-y", type=int, default=None,
+                        help="Manual watermark Y position (overrides auto-detect)")
+    parser.add_argument("--debug", action="store_true",
+                        help="Save first frame with watermark box overlay for position check")
     args = parser.parse_args()
 
     if not os.path.exists(args.input):
         print(f"Error: file not found: {args.input}")
         sys.exit(1)
 
-    process_video(args.input, args.output, args.alpha_gain, args.search)
+    process_video(args.input, args.output, args.alpha_gain, args.search,
+                  args.pos_x, args.pos_y, args.debug)
 
 
 if __name__ == "__main__":
